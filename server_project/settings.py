@@ -31,6 +31,7 @@ INSTALLED_APPS = [
 
     # Local app
     'accounts.apps.AccountsConfig',
+    'notes.apps.NotesConfig',
 ]
 
 MIDDLEWARE = [
@@ -112,3 +113,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Login Redirect
+LOGIN_REDIRECT_URL = 'home'
