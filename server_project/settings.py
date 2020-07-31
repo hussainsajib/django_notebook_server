@@ -117,3 +117,6 @@ STATIC_URL = '/static/'
 
 # Login Redirect
 LOGIN_REDIRECT_URL = 'home'
+
+# Logout Redirect
+LOGOUT_REDIRECT_URL = 'home'
