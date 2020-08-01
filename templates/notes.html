@@ -4,8 +4,8 @@
 <h1>Notes</h1>
 {% for item in object_list %}
     <div>
-        <h3>{{ item.title }} by {{ item.creator }}</h3>
-        <p><small>{{ item.subject }} | {{ item.sub_subject }} | {{ item.priority }}</small></p>
+        <h3><a href="{% url 'note' item.id %}">{{ item.title }} by {{ item.creator }}</a></h3>
+        <p><small>{{ item.category }} | {{ item.sub_category }} | {{ item.priority }}</small></p>
         <p><small>Created: {{ item.creation_date }} | Last Modified: {{ item.modified_date }}</small></p>
         <p>{{ item.body }}</p>
         <hr>
