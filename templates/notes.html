@@ -7,7 +7,9 @@
         <h3><a href="{% url 'note' item.id %}">{{ item.title }} by {{ item.creator }}</a></h3>
         <p><small>{{ item.category }} | {{ item.sub_category }} | {{ item.priority }}</small></p>
         <p><small>Created: {{ item.creation_date }} | Last Modified: {{ item.modified_date }}</small></p>
-        <p>{{ item.body }}</p>
+        {% autoescape off %}
+            {{ item.body }}
+        {% endautoescape %}
         <hr>
     </div>
 {% endfor %}

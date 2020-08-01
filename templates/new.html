@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>New Note</h1>
-<form method='post' novalidate>
+<form method='post' novalidate >
     {% csrf_token %}
     <div>
         {{ form.title.errors }}
