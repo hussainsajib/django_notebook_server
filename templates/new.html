@@ -2,5 +2,9 @@
 
 {% block content %}
 <h1>New Note</h1>
-<p>This is new note</p>
+<form method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
 {% endblock content %}
