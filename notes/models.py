@@ -6,8 +6,8 @@ from django.contrib.auth import get_user_model
 class Note(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
-    subject = models.CharField(max_length=50, blank=True)
-    sub_subject = models.CharField(max_length=50, blank=True)
+    category = models.CharField(max_length=50, blank=True)
+    sub_category = models.CharField(max_length=50, blank=True)
     priority_choices = [
         ('High', 'High'),
         ('Normal', 'Normal'),

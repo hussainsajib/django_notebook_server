@@ -1,6 +1,7 @@
 from django.views.generic.edit import CreateView
 from django.views.generic import ListView, DetailView
 from .models import Note
+from .forms import NoteForm
 
 
 class NotesListView(ListView):
@@ -15,8 +16,9 @@ class NotesDetailView(DetailView):
 
 class NoteCreateView(CreateView):
     model = Note
+    form_class = NoteForm
     template_name = 'new.html'
-    fields = ('title', 'body', 'subject', 'sub_subject', 'priority',)
+    #fields = ('title', 'body', 'subject', 'sub_subject', 'priority',)
 
     def form_valid(self, form):
         form.instance.creator = self.request.user
