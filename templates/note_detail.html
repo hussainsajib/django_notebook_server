@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ object.title }}</h1>
+<p>{{ object.body }}</p>
+<p>{{ object.subject }}</p>
+<p>{{ object.sub_subject }}</p>
+<p>{{ object.priority }}</p>
+<p>{{ object.creator }}</p>
+<p>{{ object.creation_date }}</p>
+<p>{{ object.modified_date }}</p>
+{% endblock content %}

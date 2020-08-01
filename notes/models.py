@@ -1,5 +1,6 @@
+from django.urls import reverse
 from django.db import models
-from django.conf import settings
+from django.contrib.auth import get_user_model
 
 
 class Note(models.Model):
@@ -15,7 +16,7 @@ class Note(models.Model):
     priority = models.CharField(
         max_length=10, choices=priority_choices, default='Normal')
     creator = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+        get_user_model(), on_delete=models.CASCADE)
     creation_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 
@@ -23,4 +24,4 @@ class Note(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("note", args=[self.id])
+        return reverse("note", args=[str(self.id), ])
