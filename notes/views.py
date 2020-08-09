@@ -18,7 +18,6 @@ class NoteCreateView(CreateView):
     model = Note
     form_class = NoteForm
     template_name = 'new.html'
-    #fields = ('title', 'body', 'subject', 'sub_subject', 'priority',)
 
     def form_valid(self, form):
         form.instance.creator = self.request.user

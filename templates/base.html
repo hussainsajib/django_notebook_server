@@ -25,6 +25,7 @@
             </div>
             </div>
             {% if user.is_authenticated %}
+                <a class="ui item" href="{% url 'profile' %}">Profile</a>
                 <a class="ui item" href="{% url 'logout' %}">Logout</a>
             {% else %}
                 <a class="ui item {% if request.path == '/accounts/signup/' %}active{% endif %} " href="{% url 'signup' %}" >Register</a>

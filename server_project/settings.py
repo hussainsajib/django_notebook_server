@@ -120,3 +120,12 @@ LOGIN_REDIRECT_URL = 'home'
 
 # Logout Redirect
 LOGOUT_REDIRECT_URL = 'home'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'mhisajib@myseneca.ca'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
