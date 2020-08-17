@@ -1,6 +1,6 @@
 from django.views.generic.edit import CreateView
 from django.views.generic import ListView, DetailView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Note
 from .forms import NoteForm
 
@@ -9,10 +9,17 @@ class NotesListView(LoginRequiredMixin, ListView):
     model = Note
     template_name = 'notes.html'
 
+    def get_queryset(self):
+        return Note.objects.filter(creator=self.request.user)
 
-class NotesDetailView(LoginRequiredMixin, DetailView):
+
+class NotesDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Note
     template_name = 'note_detail.html'
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.creator == self.request.user
 
 
 class NoteCreateView(LoginRequiredMixin, CreateView):
