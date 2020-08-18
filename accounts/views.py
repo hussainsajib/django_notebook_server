@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
-from django.urls import reverse_lazy
-from django.views.generic import CreateView, TemplateView
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.urls import reverse_lazy, reverse
+from django.views.generic import CreateView, TemplateView, UpdateView
 from django.contrib.auth import get_user_model
 
 
@@ -20,5 +20,14 @@ class ProfileView(TemplateView):
     context_object_name = 'user'
     template_name = 'user_profile.html'
 
-    def get_queryset(self):
-        return get_user_model().objects.filter(username=self.request.user).get()
+    def get_object(self):
+        return get_user_model().objects.get(username=self.request.user)
+
+
+class ProfileUpdateView(UpdateView):
+    form_class = UserChangeForm
+    success_url = reverse_lazy('profile')
+    template_name = 'update_user.html'
+
+    def get_object(self):
+        return self.request.user
