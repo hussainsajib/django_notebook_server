@@ -2,15 +2,18 @@
 
 {% block content %}
 <h1>Notes</h1>
-{% for item in object_list %}
-    <div>
-        <h3><a href="{% url 'note' item.id %}">{{ item.title }} by {{ item.creator }}</a></h3>
-        <p><small>{{ item.category }} | {{ item.sub_category }} | {{ item.priority }}</small></p>
-        <p><small>Created: {{ item.creation_date }} | Last Modified: {{ item.modified_date }}</small></p>
-        {% autoescape off %}
-            {{ item.body }}
-        {% endautoescape %}
-        <hr>
-    </div>
-{% endfor %}
+<p><a href="{% url 'new_note' %}">Create New Note</a></p>
+<div class="ui cards">
+    {% for item in object_list %}
+        <div class="card">
+            <div class="header"><a href="{% url 'note' item.id %}">{{ item.title }}</a></div>
+            <div class="meta"><small>{{ item.category }} | {{ item.sub_category }} | {{ item.priority }}</small></div>
+            {% autoescape off %}
+                <div class="description notes-description">{{ item.body }}</div>
+            {% endautoescape %}
+            <br>
+            <div class="footer"><small>Created {{ item.creation_date }} <br> Modified: {{ item.modified_date | timesince }} ago</small></div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock content %}

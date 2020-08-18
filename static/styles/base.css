@@ -1,0 +1,11 @@
+html {
+    --lh: 1.4rem;
+    line-height: var(--lh);
+}
+
+.notes-description {
+    --max-linex: 4;
+    max-height: calc(var(--lh) * var(--max-linex));
+    overflow: hidden;
+    text-justify: newspaper;
+}

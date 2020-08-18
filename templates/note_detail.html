@@ -2,6 +2,7 @@
 
 {% block content %}
 <h1>{{ object.title }}</h1>
+<p><a href="{% url 'update_note' object.pk %}">Edit</a></p>
 <p>{{ object.subject }}</p>
 <p>{{ object.sub_subject }}</p>
 <p>{{ object.priority }}</p>

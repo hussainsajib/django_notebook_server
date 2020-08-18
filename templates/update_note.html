@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Update Note</h1>
+<form method="post">
+    {% csrf_token %}
+    <div>
+        {{ form.title.errors }}
+        {{ form.title.label_tag }}
+        {{ form.title }}
+    </div>
+    
+    <div>
+        {{ form.category.errors }}
+        {{ form.category.label_tag }}
+        {{ form.category }}
+    </div>
+    <div>
+        {{ form.sub_category.errors }}
+        {{ form.sub_category.label_tag }}
+        {{ form.sub_category }}
+    </div>
+    <div>
+        {{ form.priority.errors }}
+        {{ form.priority.label_tag }}
+        {{ form.priority }}
+    </div>
+
+    <div>
+        {{ form.body.errors }}
+        {{ form.body.label_tag }}
+        {{ form.body }}
+    </div>
+
+    <button type="submit">Update</button>
+</form>
+{% endblock content %}
