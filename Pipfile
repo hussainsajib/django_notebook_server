@@ -9,6 +9,8 @@ verify_ssl = true
 django = "*"
 djangorestframework = "*"
 python-decouple = "*"
+gunicorn = "*"
+whitenoise = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"

@@ -17,10 +17,10 @@
 </head>
 <body>
     <div class="ui mini inverted menu">
-        <div class="header item">DNote</div>
+        <div class="header orange item">DNote</div>
         <a class="{% if request.path == '/' %}active{% endif %} orange item" href="{% url 'home' %}">Home</a>
-        <a class="{% if request.path == '/notes/new/' %}active{% endif %} pink item" href="{% url 'new_note' %}">New Note</a>
-        <a class="{% if request.path == '/notes/' %}active{% endif %} pink item" href="{% url 'notes' %}">Notes</a>
+        <a class="{% if request.path == '/notes/new/' %}active{% endif %} orange item" href="{% url 'new_note' %}">New Note</a>
+        <a class="{% if request.path == '/notes/' %}active{% endif %} orange item" href="{% url 'notes' %}">Notes</a>
         <div class="right menu">
             <div class="item">
                 <div class="ui icon input">
