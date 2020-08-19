@@ -3,6 +3,11 @@ html {
     line-height: var(--lh);
 }
 
+.block-body {
+    width: 80vw;
+    margin: 0 auto 0 auto;
+}
+
 .notes-description {
     --max-linex: 4;
     max-height: calc(var(--lh) * var(--max-linex));

@@ -29,8 +29,8 @@
                 </div>
             </div>
             {% if user.is_authenticated %}
-                <a class="ui pink item" href="{% url 'profile' %}">Welcome, {{ user.username }}</a>
-                <a class="ui pink item" href="{% url 'logout' %}">Logout</a>
+                <a class="ui orange item  {% if request.path == '/accounts/profile/' %}active{% endif %}" href="{% url 'profile' %}">Welcome, {{ user.username }}</a>
+                <a class="ui item" href="{% url 'logout' %}">Logout</a>
             {% else %}
                 <a class="ui orange item {% if request.path == '/accounts/signup/' %}active{% endif %}" href="{% url 'signup' %}" >Register</a>
                 <a class="ui orange item {% if request.path == '/accounts/login/' %}active{% endif %}" href="{% url 'login' %}">Login</a>
@@ -40,7 +40,10 @@
     </div>
 
 
-    {% block content %}{% endblock content %}
+    <div class="block-body">
+        {% block content %}{% endblock content %}
+    
+    </div>
     
 
     <script
